@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #1f1f1f;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+      }
+      .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .url-form {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        border: 1px solid #333;
+        background-color: #2c2c2c;
+        padding: 20px;
+        border-radius: 8px;
+        width: 400px;
+      }
+      .url-form input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        margin-right: 10px;
+      }
+      .url-form button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+      }
+      .url-form button:hover {
+        background-color: #0056b3;
+      }
+      .shortened-url {
+        margin-top: 30px;
+        text-align: center;
+      }
+      .shortened-url a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      .shortened-url a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+        <h1>URL Shortener</h1>
+        <div class="url-form">
+            <form method="post" action="/url">
+                <input type="text" name="url" placeholder="https://example.com" />
+                <button type="submit">Shorten</button>
+            </form>
+        </div>
+        <h2>Shortened URL:</h2>
+        <div class="shortened-url">
+            <p>
+                <% if (locals.shortId) { %>
+                    <a href="http://localhost:3000/<%= locals.shortId %>" target="_blank">localhost:3000/<%= locals.shortId %></a>
+                <% } %> 
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+        
